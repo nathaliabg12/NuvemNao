@@ -1,20 +1,24 @@
 import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const salas = [
     {
+      id: "estrela",
       emoji: "🌟",
       title: "Sala Estrela",
       description: "3 estudantes focados",
     },
     {
+      id: "lua",
       emoji: "🌙",
       title: "Sala Lua",
       description: "5 estudantes focados",
     },
     {
+      id: "arco-iris",
       emoji: "🌈",
       title: "Sala Arco-íris",
       description: "2 estudantes focados",
@@ -45,17 +49,19 @@ const Index = () => {
           <h2 className="text-3xl font-bold text-center mb-8">Salas Disponíveis</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {salas.map((sala, index) => (
-              <Card key={index} className="shadow-lg hover:shadow-xl transition-all cursor-pointer hover:scale-105">
-                <CardHeader>
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/10 to-primary/20 flex items-center justify-center mb-4 mx-auto">
-                    <span className="text-5xl">{sala.emoji}</span>
-                  </div>
-                  <CardTitle className="text-center">{sala.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-center">{sala.description}</CardDescription>
-                </CardContent>
-              </Card>
+              <Link key={index} to={`/sala/${sala.id}`}>
+                <Card className="shadow-lg hover:shadow-xl transition-all cursor-pointer hover:scale-105">
+                  <CardHeader>
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/10 to-primary/20 flex items-center justify-center mb-4 mx-auto">
+                      <span className="text-5xl">{sala.emoji}</span>
+                    </div>
+                    <CardTitle className="text-center">{sala.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-center">{sala.description}</CardDescription>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </section>
