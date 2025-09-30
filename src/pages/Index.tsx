@@ -1,25 +1,23 @@
 import Navigation from "@/components/Navigation";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Timer, Trophy, Wind, Users } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Users } from "lucide-react";
 
 const Index = () => {
-  const features = [
+  const salas = [
     {
-      icon: Timer,
-      title: "Pomodoro em Grupo",
-      description: "Estude junto com outros estudantes em salas públicas compartilhando o tempo de foco.",
+      emoji: "🌟",
+      title: "Sala Estrela",
+      description: "3 estudantes focados",
     },
     {
-      icon: Trophy,
-      title: "Ranking de Estudantes",
-      description: "Conquiste maçãs douradas e suba no ranking dos estudantes mais dedicados.",
+      emoji: "🌙",
+      title: "Sala Lua",
+      description: "5 estudantes focados",
     },
     {
-      icon: Wind,
-      title: "Exercícios de Respiração",
-      description: "Relaxe entre as sessões com exercícios guiados de respiração.",
+      emoji: "🌈",
+      title: "Sala Arco-íris",
+      description: "2 estudantes focados",
     },
   ];
 
@@ -41,40 +39,24 @@ const Index = () => {
             Potencialize seus estudos com o método Pomodoro em grupo. 
             Foque, descanse e conquiste suas metas educacionais.
           </p>
-          <div className="flex gap-4 justify-center">
-            <Button size="lg" className="shadow-lg" asChild>
-              <Link to="/ranking">
-                <Trophy className="w-4 h-4 mr-2" />
-                Ver Ranking
-              </Link>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link to="/respiracao">
-                <Wind className="w-4 h-4 mr-2" />
-                Respirar
-              </Link>
-            </Button>
-          </div>
         </section>
 
         <section className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-8">Salas Disponíveis</h2>
           <div className="grid md:grid-cols-3 gap-6">
-            {features.map((feature, index) => {
-              const Icon = feature.icon;
-              return (
-                <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow">
-                  <CardHeader>
-                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 to-primary/20 flex items-center justify-center mb-4">
-                      <Icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <CardTitle>{feature.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription>{feature.description}</CardDescription>
-                  </CardContent>
-                </Card>
-              );
-            })}
+            {salas.map((sala, index) => (
+              <Card key={index} className="shadow-lg hover:shadow-xl transition-all cursor-pointer hover:scale-105">
+                <CardHeader>
+                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/10 to-primary/20 flex items-center justify-center mb-4 mx-auto">
+                    <span className="text-5xl">{sala.emoji}</span>
+                  </div>
+                  <CardTitle className="text-center">{sala.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-center">{sala.description}</CardDescription>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </section>
 
