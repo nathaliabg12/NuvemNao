@@ -1,17 +1,18 @@
 import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Trophy } from "lucide-react";
+import { TimerPopup } from "@/components/TimerPopup";
 
 const Ranking = () => {
   const students = [
-    { id: 1, name: "Maria Silva", score: 156, position: 1 },
-    { id: 2, name: "João Santos", score: 142, position: 2 },
-    { id: 3, name: "Ana Oliveira", score: 128, position: 3 },
-    { id: 4, name: "Pedro Costa", score: 115, position: 4 },
-    { id: 5, name: "Carla Souza", score: 98, position: 5 },
-    { id: 6, name: "Lucas Ferreira", score: 87, position: 6 },
-    { id: 7, name: "Julia Lima", score: 76, position: 7 },
-    { id: 8, name: "Rafael Alves", score: 65, position: 8 },
+    { id: 1, name: "Maria Silva", score: 50, position: 1 },
+    { id: 2, name: "João Santos", score: 50, position: 2 },
+    { id: 3, name: "Ana Oliveira", score: 50, position: 3 },
+    { id: 4, name: "Pedro Costa", score: 50, position: 4 },
+    { id: 5, name: "Carla Souza", score: 50, position: 5 },
+    { id: 6, name: "Lucas Ferreira", score: 50, position: 6 },
+    { id: 7, name: "Julia Lima", score: 50, position: 7 },
+    { id: 8, name: "Rafael Alves", score: 50, position: 8 },
   ];
 
   const getMedalEmoji = (position: number) => {
@@ -30,7 +31,7 @@ const Ranking = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+      <TimerPopup />
       <main className="container mx-auto px-4 pt-24 pb-12">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
@@ -92,6 +93,7 @@ const Ranking = () => {
         </div>
       </main>
     </div>
+    
   );
 };
 
